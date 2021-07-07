@@ -27,10 +27,20 @@
                 margin-right: 10px;
                 float: right;
             }
+            .form {
+                text-align: center;
+            }
+
+
         </style>
     </head>
     <body>
-    
+    <div class="form">
+        <form action="search.php" method="get">
+            Search: <input type="text" name="search" />
+            <input type="submit" name="ok" value="search" />
+        </form>
+    </div>
         <table id="datatable" style="border: 1px solid">
             <h1>Quản lý cầu thủ</h1>
             <thead>
