@@ -34,10 +34,6 @@
         </style>
     </head>
     <body>
-    <form action="search.php" method="get">
-                Search: <input type="text" name="search" />
-                <input type="submit" name="ok" value="search" />
-            </form>
         <form action="process.php" method="POST">
             <h1>Thêm Cầu Thủ</h1>
             <div class="form-group">
