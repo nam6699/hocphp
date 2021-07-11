@@ -39,7 +39,7 @@ if (!empty($_POST['login']))
         <div style="width: 200px; margin:0px auto; border:solid 1px gray; padding: 20px">
             <form method="post" action="">
                 Username: <input type="text" name="username" value=""/> <br/>
-                Password: <input type="text" name="password" value=""/> <br/>
+                Password: <input type="password" name="password" value=""/> <br/>
                 <input type="submit" name="login" value="Login"/>
                 <?php echo $message; ?>
             </form>

@@ -19,7 +19,7 @@ function disconnect_db()
 {
     global $conn;
 
-    if(!$conn){
+    if($conn){
         mysqli_close($conn);
     }
 }
@@ -80,36 +80,6 @@ function get_student($student_id)
     // Trả kết quả về
     return $result;
 }
- 
-// Hàm thêm sinh viên
-function add_student($student_name, $student_sex, $student_birthday)
-{
-    // Gọi tới biến toàn cục $conn
-    global $conn;
-     
-    // Hàm kết nối
-    connect_db();
-     
-    // Chống SQL Injection
-    $student_name = addslashes($student_name);
-    $student_sex = addslashes($student_sex);
-    $student_birthday = addslashes($student_birthday);
-     
-    // Câu truy vấn thêm
-    $sql = "
-            INSERT INTO tb_sinhvien(sv_name, sv_sex, sv_birthday) VALUES
-            ('$student_name','$student_sex','$student_birthday')
-    ";
-    error_reporting(E_ALL);
-    ini_set('display_errors', TRUE);
-    ini_set('display_startup_errors', TRUE);
-    // Thực hiện câu truy vấn
-    $query = mysqli_query($conn, $sql);
-     
-    return $query;
-}
- 
- 
 // Hàm sửa sinh viên
 function edit_student($student_id, $student_name, $student_sex, $student_birthday)
 {
@@ -140,6 +110,37 @@ function edit_student($student_id, $student_name, $student_sex, $student_birthda
 }
  
  
+// Hàm thêm sinh viên
+function add_student($student_name, $student_sex, $student_birthday)
+{
+    // Gọi tới biến toàn cục $conn
+    global $conn;
+     
+    // Hàm kết nối
+    connect_db();
+     
+    // Chống SQL Injection
+    $student_name = addslashes($student_name);
+    $student_sex = addslashes($student_sex);
+    $student_birthday = addslashes($student_birthday);
+     
+    // Câu truy vấn thêm
+    $sql = "
+            INSERT INTO tb_sinhvien(sv_name, sv_sex, sv_birthday) VALUES
+            ('$student_name','$student_sex','$student_birthday')
+    ";
+    error_reporting(E_ALL);
+    ini_set('display_errors', TRUE);
+    ini_set('display_startup_errors', TRUE);
+    // Thực hiện câu truy vấn
+    $query = mysqli_query($conn, $sql);
+     
+    return $query;
+}
+ 
+ 
+
+ 
 // Hàm xóa sinh viên
 function delete_student($student_id)
 {
@@ -168,7 +169,7 @@ function delete_student($student_id)
 
     $result = mysqli_query($conn, $sql);
 
-    if (mysqli_num_rows($result) > 0)
+    if (mysqli_num_rows($result) == 0)
     {
         // Sử dụng javascript để thông báo
         echo '<script language="javascript">alert("Thông tin đăng nhập bị sai"); window.location="register.php";</script>';

@@ -47,7 +47,8 @@
             //Gắn dữ liệu lấy được vào mảng $data
             while ($row = mysqli_fetch_assoc($result)) {
                 $info = $row;
-            }
+    
+        }
         ?>
         <form action="process.php?id=<?=$id?>" method="POST">
             <h1>Chỉnh sửa thông tin cầu thủ</h1>
@@ -69,7 +70,7 @@
             <div class="form-group">
                 <button type="submit">Cập nhật</button>
                 <button type="reset">Reset</button>
-                <a href="index.php"><button type="button">Cancle</button></a>
+                <a href="index.php"><button type="button">Cancel</button></a>
             </div>
         </form>
     </body>

@@ -20,15 +20,6 @@ Class User
         }
 
     }
-    //lay thong tin nguoi dung logged in
-    function get_user_info($key)
-    {
-        if (!empty($_SESSION[$this->token_login]))
-        {
-            return $_SESSION[$this->token_login][$key];
-        }
-        return false;
-    }
     //kiem tra logged in
     function is_logged()
     {

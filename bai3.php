@@ -28,8 +28,8 @@ echo "<ul>";
 	foreach ($authors as $key => $value) {
 		echo "<li>";
 		echo "name: ".$value['name'].'<br>';
-		echo "name: ".$value['blog'].'<br>';
-		echo "name: ".$value['position'].'<br>';
+		echo "blog: ".$value['blog'].'<br>';
+		echo "position: ".$value['position'].'<br>';
 		echo "</li>";
 	}
 
@@ -38,7 +38,7 @@ echo "<ul>";
 echo "</ul>";
 
 //lay ten tac gia
-echo 'lay ten tac gia';
+echo 'lay ten tac gia'.'<pre>';
 foreach ($authors as $key => $value) {
 	echo $value['name'].'<br>';
 }
@@ -53,8 +53,8 @@ echo "<ul>";
 	foreach ($authors as $key => $value) {
 		echo "<li>";
 		echo "name: ".$value['name'].'<br>';
-		echo "name: ".$value['blog'].'<br>';
-		echo "name: ".$value['position'].'<br>';
+		echo "blog: ".$value['blog'].'<br>';
+		echo "position: ".$value['position'].'<br>';
 		echo "</li>";
 	}
 
@@ -68,8 +68,8 @@ echo "<ul>";
 	foreach ($authors as $key => $value) {
 		echo "<li>";
 		echo "name: ".$value['name'].'<br>';
-		echo "name: ".$value['blog'].'<br>';
-		echo "name: ".$value['position'].'<br>';
+		echo "blog: ".$value['blog'].'<br>';
+		echo "position: ".$value['position'].'<br>';
 		echo "</li>";
 	}
 
@@ -78,7 +78,15 @@ echo "<ul>";
 echo "</ul>";
 // thay doi phan tu cua mang
 echo 'thay doi phan tu cua mang'.'<br>';
-$authors[0]['name'] = 'Ngo Pham Phuong Nam 2';
-echo $authors[0]['name'];
+$authors[4]['name'] = 'Ngo Pham Phuong Nam 2';
+echo "<ul>";
+	foreach ($authors as $key => $value) {
+		echo "<li>";
+		echo "name: ".$value['name'].'<br>';
+	}
+
+
+
+echo "</ul>";
 
 ?>

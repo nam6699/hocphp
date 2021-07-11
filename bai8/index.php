@@ -1,4 +1,7 @@
-<?php require 'dbconnect.php';?>
+<?php 
+require 'dbconnect.php';
+    
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +15,7 @@
                     type : "get",
                     dataType:"text",
                     data : {
-                         
+                            
                          delete_id : id
                     },
                     success : function (result){
@@ -54,6 +57,18 @@
         </style>
     </head>
     <body>
+    <h1><?php
+    session_start();
+    if(isset($_SESSION['username'])){
+    echo "xin chao ".$_SESSION['username'];
+    }else{
+        echo 'ban chua dang nhap';
+    }?>
+    </h1>
+    <div style="text-align: center;">
+    <a style="padding: 40px;" href="login.php">Login</a>
+    <a style="padding: 40px;" href="logout.php">Logout</a>
+    </div>
     <div class="form">
         <form action="search.php" method="get">
             Search: <input type="text" name="search" />
@@ -75,15 +90,21 @@
             $a = new database();
             $data = $a->get_all_players();
             foreach ($data as $value) { ?>
-                <tr id="delete<?php echo    $value['id']?>">
+                <tr id="delete<?php echo $value['id']?>">
                     <td ><?=$value['id']?></td>
                     <td><?=$value['name']?></td>
                     <td><?=$value['age']?></td>
                     <td><?=$value['national']?></td>
                     <td><?=$value['position']?></td>
                     <td><?=$value['salary']?>$</td>
+                    <?php if(isset($_SESSION['username'])) {?>
                     <td><a href="edit.php?id=<?=$value['id']?>">Edit</a></td>
+                    <?php }else{?>
+                        <?php } ?>
+                        <?php if(isset($_SESSION['username'])) {?>
                     <td><button onclick="deletePlayer(<?=$value['id'];?>)"> Delete</button></td>
+                    <?php }else{?>
+                        <?php } ?>
                 </tr>
             <?php } ?>
             </thead>
@@ -91,7 +112,11 @@
             <tfoot>
                 <tr>
                     <td colspan="8">
+                    <?php if(isset($_SESSION['username'])) {?>
                         <a href="add.php"><button id="button">Thêm cầu thủ</button></a>
+                        <?php }else{?>
+                        <p>vui long dang nhap</p>
+                        <?php } ?>
                     </td>
                 </tr>
             </tfoot>

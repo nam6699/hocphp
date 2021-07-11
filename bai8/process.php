@@ -60,8 +60,7 @@
         //Chạy câu SQL
         $result = mysqli_query($con,$sql);
         if ($result) {
-            echo "<h1>Thêm mới cầu thủ thành công Click vào 
-            <a href='index.php'>đây</a> để về trang danh sách</h1>";
+            header('location:index.php');
         }else{
             echo "<h1>Có lỗi xảy ra Click vào 
             <a href='index.php'>đây</a> để về trang danh sách</h1>";
